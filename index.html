@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-trip Lite</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <img src="" alt="E-trip-logo" sizes="25px">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#calculator">Calculator</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+                <button type="button">Try Now</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-text">
+                    <h2>Plan your EV trip smarter</h2>
+                    <p>
+                        Calculate battery usage, charging stops
+                        and travel safely with E-trip.
+                    </p>
+                    <button type="button">Start Planning</button>
+                </div>
+                <div class="hero-image">
+                    <img src="" alt="carro eletrico">
+                </div>
+            </div>
+        </section>
+
+        <section id="calculator">
+            <div class="container">
+                <h2>E-trip Calculator</h2>
+                
+                <form id="tripForm">
+                    <h3>Car Data</h3>
+                    
+                    <label for="battery">Bateria (kWh)</label>
+                    <input type="number" id="battery">
+
+                    <label for="range">Autonomia oficial - Inmetro (km)</label>
+                    <input type="number" id="range">
+
+                    <h3>Trip Data</h3>
+
+                    <label for="distance">Distância (km)</label>
+                    <input type="number" id="distance">
+
+                    <label for="speed">Velocidade média (km/h)</label>
+                    <input type="number" id="speed">
+
+                    <label for="elevation">Elevação</label>
+                    <select id="elevation">
+                        <option value="plano">Plano</option>
+                        <option value="leve">Leve</option>
+                        <option value="media">Média</option>
+                        <option value="alta">Alta</option>
+                    </select>
+
+                    <label for="ac">AC ligado?</label>
+                    <select id="ac">
+                        <option value="nao">Não</option>
+                        <option value="sim">Sim</option>
+                    </select>
+
+                    <label for="passengers">Passageiros extras</label>
+                    <input type="number" id="passengers">
+
+                    <button type="button" id="calculateBtn">Calculate Trip</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="results">
+            <div class="container">
+                <h2>Results</h2>
+                <div class="results-card">
+                    <p id="realRange"></p>
+                    <p id="stops"></p>
+                    <p id="arrivalBattery"></p>
+                    <p id="status"></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>About E-trip</h2>
+                <p>
+                    E-trip is an EV trip planner created to help
+                    electric vehicle drivers travel safely.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Built by Miguel S. Freitas</p>
+        </div>
+    </footer>
+
+</body>
+</html>
