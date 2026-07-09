@@ -4,115 +4,203 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-trip Lite</title>
+
+    <link rel="shortcut icon" href="images/etriplogo.jpeg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-    <script src="/Javascript/script.js"></script>
 </head>
 <body>
 
     <header>
         <div class="container">
+
             <nav>
-                <img src="" alt="E-trip-logo" sizes="25px">
+
+                <img src="images/etriplogo.jpeg" alt="E-trip Logo" class="logo">
+
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#calculator">Calculator</a></li>
                     <li><a href="#about">About</a></li>
                 </ul>
-                <button type="button">Try Now</button>
+
+                <button type="button">Plan My Trip</button>
+
             </nav>
+
         </div>
     </header>
 
     <main>
 
         <section class="hero" id="home">
+
             <div class="container">
+
                 <div class="hero-text">
-                    <h2>Plan your EV trip smarter</h2>
-                    <p>
-                        Calculate battery usage, charging stops
-                        and travel safely with E-trip.
-                    </p>
+
+                    <h1>Plan your EV trip smarter</h1>
+
+                    <p>Calculate battery usage, charging stops and travel safely with E-trip.</p>
+
                     <button type="button">Start Planning</button>
+
                 </div>
+
                 <div class="hero-image">
-                    <img src="" alt="carro eletrico">
+
+                    <img src="images/carroEV.hero.jpeg" alt="Electric Vehicle">
+
                 </div>
+
             </div>
+
         </section>
 
         <section id="calculator">
-            <div class="container">
-                <h2>E-trip Calculator</h2>
-                
-                <form id="tripForm">
-                    <h3>Car Data</h3>
-                    
-                    <label for="battery">Bateria (kWh)</label>
-                    <input type="number" id="battery">
 
-                    <label for="range">Autonomia oficial - Inmetro (km)</label>
-                    <input type="number" id="range">
+            <div class="container">
+
+                <h2>E-trip Calculator</h2>
+
+                <form id="tripForm" autocomplete="off">
+
+                    <h3>Car Data</h3>
+
+                    <label for="brand">Brand</label>
+                    <input type="text" id="brand" placeholder="Ex: BYD">
+
+                    <label for="model">Model</label>
+                    <input type="text" id="model" placeholder="Ex: Dolphin">
+
+                    <label for="battery">Battery (kWh)</label>
+                    <input type="number" id="battery" placeholder="45">
+
+                    <label for="range">Official Range (km)</label>
+                    <input type="number" id="range" placeholder="291">
 
                     <h3>Trip Data</h3>
 
-                    <label for="distance">Distância (km)</label>
-                    <input type="number" id="distance">
+                    <label for="origin">Origin City</label>
+                    <input type="text" id="origin" placeholder="Ex: Pinheiros - ES">
 
-                    <label for="speed">Velocidade média (km/h)</label>
-                    <input type="number" id="speed">
+                    <label for="destination">Destination City</label>
+                    <input type="text" id="destination" placeholder="Ex: Vitória - ES">
 
-                    <label for="elevation">Elevação</label>
+                    <label for="distance">Trip Distance (km)</label>
+                    <input type="number" id="distance" placeholder="290">
+
+                    <label for="speed">Average Speed (km/h)</label>
+                    <input type="number" id="speed" placeholder="90">
+
+                    <label for="elevation">Elevation</label>
                     <select id="elevation">
-                        <option value="plano">Plano</option>
-                        <option value="leve">Leve</option>
-                        <option value="media">Média</option>
-                        <option value="alta">Alta</option>
+                        <option value="flat">Flat</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
                     </select>
 
-                    <label for="ac">AC ligado?</label>
+                    <label for="ac">Air Conditioning</label>
                     <select id="ac">
-                        <option value="nao">Não</option>
-                        <option value="sim">Sim</option>
+                        <option value="off">Off</option>
+                        <option value="on">On</option>
                     </select>
 
-                    <label for="passengers">Passageiros extras</label>
-                    <input type="number" id="passengers">
+                    <label for="passengers">Extra Passengers</label>
+                    <input type="number" id="passengers" placeholder="0">
 
-                    <button type="button" id="calculateBtn">Calculate Trip</button>
+                    <h3>Battery Preferences</h3>
+
+                    <label for="recharge">Recharge At (%)</label>
+                    <input type="number" id="recharge" placeholder="30">
+
+                    <label for="arrival">Arrival Battery (%)</label>
+                    <input type="number" id="arrival" placeholder="20">
+
+                    <button type="button" id="calculateBtn">
+                        Calculate Trip
+                    </button>
+
                 </form>
+
             </div>
+
         </section>
 
         <section id="results">
+
             <div class="container">
+
                 <h2>Results</h2>
+
                 <div class="results-card">
+
                     <p id="realRange"></p>
                     <p id="stops"></p>
                     <p id="arrivalBattery"></p>
                     <p id="status"></p>
+
                 </div>
+
+                <div class="route-card">
+
+                    <h3>Trip Route</h3>
+
+                    <p id="routeOrigin">
+                        🚙 Origin
+                    </p>
+
+                    <div class="route-bar">
+
+                        <div id="stopMarkers"></div>
+
+                    </div>
+
+                    <p id="routeStops">
+                        No charging stops.
+                    </p>
+
+                    <p id="routeDestination">
+                        📍 Destination
+                    </p>
+
+                </div>
+
             </div>
+
         </section>
 
         <section id="about">
+
             <div class="container">
+
                 <h2>About E-trip</h2>
+
                 <p>
-                    E-trip is an EV trip planner created to help
-                    electric vehicle drivers travel safely.
+                    E-trip is an EV trip planner created to help electric vehicle
+                    drivers calculate battery usage, charging stops and travel
+                    safely.
                 </p>
+
             </div>
+
         </section>
 
     </main>
 
     <footer>
+
         <div class="container">
-            <p>Built by <a href="oi" target="_blank" rel="noopener noreferrer">Miguel S. Freitas</a></p>
+
+            <p>
+                Built by <a href="#" target="_blank">Miguel S. Freitas</a>
+            </p>
+
         </div>
+
     </footer>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
